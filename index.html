@@ -1,0 +1,404 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PodFocal | Short-Form Content for Podcasts </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            color: #1a1a1a;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            margin-bottom: 60px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border: 2px solid #93b4d1;
+            background: transparent;
+            color: #5a7a95;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #93b4d1;
+            color: white;
+        }
+
+        .btn-primary {
+            background: #93b4d1;
+            color: white;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background: #7a9fb8;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            font-weight: 600;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 32px;
+        }
+
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .mockup-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .mockup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+            color: #a0a0a0;
+            font-size: 13px;
+        }
+
+        .mockup-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .mockup-dot {
+            width: 20px;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 4px;
+        }
+
+        .video-placeholder {
+            background: #e8e8e8;
+            border-radius: 12px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .play-button {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #666;
+        }
+
+        .mockup-text {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 4px;
+            background: #e0e0e0;
+            border-radius: 2px;
+            position: relative;
+            margin-top: 8px;
+        }
+
+        .progress-fill {
+            width: 30%;
+            height: 100%;
+            background: #93b4d1;
+            border-radius: 2px;
+        }
+
+        .time-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 11px;
+            color: #999;
+            margin-top: 4px;
+        }
+
+        .waveform {
+            background: linear-gradient(90deg, #d0e0f0 0%, #a8c8e0 50%, #d0e0f0 100%);
+            height: 60px;
+            border-radius: 8px;
+            margin-top: 16px;
+        }
+
+        .how-it-works {
+            margin-bottom: 100px;
+        }
+
+        .how-it-works h2 {
+            font-size: 36px;
+            margin-bottom: 48px;
+            font-weight: 600;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background: #e8f0f7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 32px;
+        }
+
+        .step h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 15px;
+            color: #4a5568;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            margin-bottom: 100px;
+        }
+
+        .features h2 {
+            font-size: 36px;
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 20px;
+            font-size: 17px;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: #93b4d1;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .cta {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 16px;
+            margin-bottom: 40px;
+        }
+
+        .cta p {
+            font-size: 20px;
+            color: #4a5568;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero, .features {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo" style="font-weight: 700;">PodFocal</div>
+            <a href="mailto:vis@podfocal.com" class="btn">Get in Touch</a>
+        </header>
+
+        <section class="hero">
+            <div class="hero-content">
+                <h1>We Handle Short-Form Content for Podcasts & YouTube Shows</h1>
+                <p>Turn long-form episodes into consistent short clips, without managing editors, tools, or workflows.</p>
+                <a href="mailto:vis@podfocal.com" class="btn btn-primary">Get in Touch</a>
+            </div>
+            <div class="hero-visual">
+                <div class="mockup-card">
+                    <div class="mockup-header">
+                        <span>01:20</span>
+                        <div class="mockup-controls">
+                            <div class="mockup-dot"></div>
+                            <div class="mockup-dot"></div>
+                            <div class="mockup-dot"></div>
+                        </div>
+                    </div>
+                    <div class="video-placeholder">
+                        <div class="play-button">▶</div>
+                    </div>
+                    <div class="mockup-text">The key to growth is ...</div>
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div class="time-labels">
+                        <span>0:04</span>
+                        <span>00:00</span>
+                    </div>
+                    <div class="waveform"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">🎙️</div>
+                    <h3>1. You Record Long-Form</h3>
+                </div>
+                <div class="step">
+                    <div class="step-icon">📹</div>
+                    <h3>2. We Create Short Clips</h3>
+                </div>
+                <div class="step">
+                    <div class="step-icon">✓</div>
+                    <h3>3. Your Show Stays Active</h3>
+                </div>
+            </div>
+        </section>
+
+        <section class="features">
+            <div>
+                <h2>Who It's For</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">🎙️</span>
+                        <span>Founder-Led Podcasts</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">
+                         <img src="youtube-icon.png" alt="YouTube" style="width: 20px; height: 20px;">
+                        </span>
+                        <span>YouTube Podcasts</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">💼</span>
+                        <span>Business & Creator Shows</span>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h2>What's Included</h2>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <span class="feature-icon">☑</span>
+                        <span>Weekly Short-Form Clips</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">☑</span>
+                        <span>End-to-End Handling</span>
+                    </li>
+                    <li class="feature-item">
+                        <span class="feature-icon">☑</span> 
+                        <span>No Management Needed</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="cta">
+            <p>If short-form feels like something you should be doing but can't seem to get the hang of, you're at the right place.</p>
+            <a href="mailto:vis@podfocal.com" class="btn btn-primary">Get in Touch</a>
+        </section>
+    </div>
+</body>
+</html>
